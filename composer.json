@@ -1,0 +1,21 @@
+{
+    "name": "juan88/cuit-php",
+    "description": "CUIT/CUIL Validator (Arg)",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Juanchi",
+	    "role": "developer"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6"
+    },
+    "autoload": {
+        "psr-4": {"Cuit\\": "src/"}
+    }
+}
