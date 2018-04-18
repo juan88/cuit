@@ -115,7 +115,7 @@ class Cuit
     public function getNumber($formatted=false)
     {
         if($formatted) {
-            return substr($this->number, 0, 2) . '-' . substr($this->number, 2, 8) . '-' . substr($this->number, 9, 1); 
+            return substr($this->number, 0, 2) . '-' . substr($this->number, 2, 8) . '-' . substr($this->number, 10, 1); 
         }
         return $this->number;
     }
