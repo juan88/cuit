@@ -109,4 +109,16 @@ class CuitTest extends TestCase
             $this->assertFalse($c->validCuit());
         }
     }
+
+    public function testCheckNumberRetreived()
+    {
+        $c = new Cuit('20-17254359-7');
+        $this->assertEquals($c->getNumber(),'20172543597')
+    }
+
+    public function testCheckNumberRetreivedFormatted()
+    {
+        $c = new Cuit('20-17254359-7');
+        $this->assertEquals($c->getNumber(true), '20-17254359-7')
+    }
 }

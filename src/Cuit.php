@@ -1,9 +1,8 @@
 <?php
 /**
- * Created by PhpStorm.
- * User: connor
- * Date: 12/04/18
- * Time: 22:07
+ * Validates that the CUIT/CUIL
+ * number parsed is valid according to 
+ * the rules of creation.
  */
 
 namespace Cuit;
@@ -37,6 +36,16 @@ class Cuit
     public function __construct($cuitNumber)
     {
         $this->number = $this->parseNumber($cuitNumber);
+    }
+
+    /**
+     * Parse CUIT number into a unique representation
+     * @param string $cuitNumber
+     * @return string
+     */
+    protected function parseNumber($cuitNumber)
+    {
+        return trim(strtr($cuitNumber, ['-'=>'']));
     }
 
     /**
@@ -90,16 +99,6 @@ class Cuit
     }
 
     /**
-     * Parse CUIT number into a unique representation
-     * @param string $cuitNumber
-     * @return string
-     */
-    protected function parseNumber($cuitNumber)
-    {
-        return trim(strtr($cuitNumber, ['-'=>'']));
-    }
-
-    /**
      * Return whether a CUIT is valid or not
      * @return bool
      */
@@ -108,4 +107,16 @@ class Cuit
         return $this->validateLength() && $this->validateChecksum() &&  $this->validateType();
     }
 
+    /**
+     * Return the parsed cuit number
+     * @param boolean $formatted where it is formatted or not
+     * @return string
+     */ 
+    public function getNumber($formatted=false)
+    {
+        if($formatted) {
+            return substr($this->number, 0, 2) . '-' . substr($this->number, 2, 8) . '-' . substr($this->number, 9, 1); 
+        }
+        return $this->number;
+    }
 }
