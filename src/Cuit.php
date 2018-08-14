@@ -16,7 +16,7 @@ class Cuit
      * @var int[]
      */
     protected static $validTypes = [
-        20, 23, 24, 25, 26, 27, 30
+        20, 23, 24, 27, 30, 33, 34
     ];
 
     protected static $multipliers = [
