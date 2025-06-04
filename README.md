@@ -7,7 +7,7 @@ A CUIT/CUIL validator for PHP for use in Argentina.
 It checks the CUITs length, type and checksum number. Accepts both hyphenated and only-numbers CUITs.
 
 ```php
-require_once __DIR__ . "vendor/autoload.php";
+require_once __DIR__ . "/vendor/autoload.php";
 
 $cuit = new \Cuit\Cuit("20-12345678-9");
 
